@@ -7,8 +7,8 @@ const placeSchema = new mongoose.Schema(
         description:String,
         perks:[String],
         extraInfo:String,
-        checkIn:Number,
-        checkOut:Number,
+        checkIn:String,
+        checkOut:String,
         maxGuests:Number,
         owner:String,
         deleted: {
@@ -22,6 +22,6 @@ const placeSchema = new mongoose.Schema(
     }
 )
 
-const Place = mongoose.model("Place",userSchema,"places")
+const Place = mongoose.model("Place",placeSchema,"places")
 
 module.exports = Place  

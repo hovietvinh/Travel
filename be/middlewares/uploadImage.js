@@ -27,6 +27,17 @@ async function uploadFromUrl(imageUrl) {
     }
 }
 
+const uploadFilesToCloudinary = async (file) => {
+    return new Promise((resolve, reject) => {
+        cloudinary.uploader.upload_stream({ resource_type: 'auto' }, (error, result) => {
+            if (error) {
+                return reject(new Error('Error uploading to Cloudinary: ' + error.message));
+            }
+            resolve(result);
+        }).end(file.buffer); // Gửi buffer của tệp tin lên Cloudinary
+    });
+};
 module.exports = {
-    uploadFromUrl
+    uploadFromUrl,
+    uploadFilesToCloudinary
 };

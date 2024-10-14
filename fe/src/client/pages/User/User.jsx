@@ -1,16 +1,19 @@
 import React, { useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, NavLink, useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { setUserAction } from '../../../redux/client/actions/UserAction';
 import { getProfileUserApi, logoutUserApi } from '../../../utils/Client/api';
 import Place from '../Place/Place';
 import {UserOutlined,UnorderedListOutlined,HomeOutlined} from "@ant-design/icons"
+import NavUser from '../../components/NavUser';
 
 function User() {
     const dispatch = useDispatch()
+    const location = useLocation()
+    const subparams = location.pathname.split("/")[2]
     const navigate = useNavigate()
-    const {subparams} = useParams()
+
     const stateAuth = useSelector(state=>state.UserReducer)
     const check = async()=>{
         const res =await getProfileUserApi()
@@ -41,27 +44,9 @@ function User() {
     return (
         <>
             <div>
-                <nav className='flex mt-8 gap-4 w-full justify-center mb-8'>
-                    <NavLink  to="/user/profile" 
-                        className={({ isActive }) =>
-                        `py-2 inline-flex gap-1 transition duration-300 px-4 rounded-full ${isActive ? "rounded-full bg-[#f5385d] text-white " : 'bg-gray-200'}`
-                      }>
-                        <UserOutlined />
-                        My profile
-                        </NavLink>
-                    <NavLink to="/user/booking" 
-                        className={({ isActive }) =>
-                        `py-2 px-4 inline-flex gap-1   transition duration-300 rounded-full ${isActive ? "rounded-full bg-[#f5385d] text-white " : 'bg-gray-200'}`
-                      }>
-                        <UnorderedListOutlined />
-                        My bookings</NavLink>
-                    <NavLink to="/user/places" 
-                    className={({ isActive }) =>
-                    `py-2 px-4 inline-flex gap-1   transition duration-300 rounded-full ${isActive ? " bg-[#f5385d] text-white " : 'bg-gray-200'}`
-                  }>
-                        <HomeOutlined />
-                        My accommodations</NavLink>
-                </nav>
+                
+                <NavUser/>
+
                 {subparams ==="profile" &&(
                     <>
                         <div className='text-center max-w-lg mx-auto'>
@@ -75,6 +60,13 @@ function User() {
                 {subparams ==="places" &&(
                     <>
                         <Place/>
+                    
+                    </>
+                )}
+
+                {subparams ==="booking" &&(
+                    <>
+                        123
                     
                     </>
                 )}

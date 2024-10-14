@@ -2,7 +2,7 @@ const User = require("../../models/user.model")
 const md5 = require("md5")
 const env = require("dotenv")
 const jwt = require("jsonwebtoken")
-const { uploadFromUrl } = require("../../middlewares/uploadImage")
+const { uploadFromUrl, uploadFilesToCloudinary } = require("../../middlewares/uploadImage")
 env.config()
 //[POST] /api/users/register
 module.exports.register =async (req,res)=>{
@@ -161,6 +161,31 @@ module.exports.uploadByLink = async (req,res)=>{
              });
         }
         
+    } catch (error) {
+        res.json(
+            { 
+                message: 'Internal Server Error',
+                code:400
+            });
+    }
+}
+
+module.exports.uploadByFiles = async (req,res)=>{
+    try {
+        const files = req.files; // Get the files from the request
+        if (!files || files.length === 0) {
+            return  res.json(
+                { 
+                    message: "No files were uploaded.",
+                    code:400
+                });
+        }
+        const uploadPromises = files.map(file => uploadFilesToCloudinary(file));
+        const results = await Promise.all(uploadPromises); 
+        return res.json({
+            code:200,
+            data:results
+        });
     } catch (error) {
         res.json(
             { 

@@ -23,8 +23,11 @@ function App() {
           <Route index element={<Home/>}/>
           <Route path="login" element={<Login/>}/> 
           <Route path="register" element={<Register/>}/>
-          <Route path="user/:subparams" element={<User/>}/>
-          <Route path="user/:subparams/:action" element={<User/>}/>
+          <Route path="user/profile" element={<User/>}/>
+          <Route path="user/places" element={<User/>}/>
+          <Route path="user/booking" element={<User/>}/>
+          <Route path="user/places/new" element={<User/>}/>
+          <Route path="user/places/:id" element={<User/>}/>
           
         </Route>
        
