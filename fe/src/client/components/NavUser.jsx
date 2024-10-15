@@ -14,7 +14,7 @@ function NavUser() {
                     <UserOutlined />
                     My profile
                     </NavLink>
-                <NavLink to="/user/booking" 
+                <NavLink to="/user/bookings" 
                     className={({ isActive }) =>
                     `py-2 px-4 inline-flex gap-1   transition duration-300 rounded-full ${isActive ? "rounded-full bg-[#f5385d] text-white " : 'bg-gray-200'}`
                     }>

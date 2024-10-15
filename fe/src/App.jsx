@@ -11,6 +11,7 @@ import Home from './client/pages/Home/Home';
 import Register from './client/pages/Register/Register';
 import toast, { Toaster } from 'react-hot-toast';
 import User from './client/pages/User/User';
+import Place from './client/pages/Home/Place';
 function App() {
 
   
@@ -25,9 +26,11 @@ function App() {
           <Route path="register" element={<Register/>}/>
           <Route path="user/profile" element={<User/>}/>
           <Route path="user/places" element={<User/>}/>
-          <Route path="user/booking" element={<User/>}/>
+          <Route path="user/bookings" element={<User/>}/>
           <Route path="user/places/new" element={<User/>}/>
           <Route path="user/places/:id" element={<User/>}/>
+          <Route path="places/:id" element={<Place/>}/>
+          <Route path="user/bookings/:id" element={<User/>}/>
           
         </Route>
        

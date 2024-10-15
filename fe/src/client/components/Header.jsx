@@ -20,12 +20,9 @@ function Header() {
                 </NavLink>
 
                 <div className='flex gap-2 border items-center border-gray-300 rounded-full py-2 px-4 shadow-md shadow-gray-300'>
-                    <div>Any</div>
-                    <div className='border-l border-gray-300 '></div>
-                    <div>Any</div>
-                    <div className='border-l border-gray-300 '></div>
-
-                    <div>Any</div>
+                    <div>AnyWhere</div>
+                    <div className='border-l border-black-300 pl-2'>AnyTime</div>
+                    <div className='border-l pl-2 border-black-300'>AnyGuests</div>
                     <button className='bg-[#f5385d] text-white p-1 rounded-full'>
                     <CiSearch size={15}/>
 

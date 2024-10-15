@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {CloudUploadOutlined,WifiOutlined,StarOutlined,CarOutlined,DesktopOutlined,SmileOutlined,LeftSquareOutlined,LaptopOutlined} from "@ant-design/icons"
+import {CloudUploadOutlined,WifiOutlined,StarOutlined,CarOutlined,DesktopOutlined,SmileOutlined,StarFilled,LeftSquareOutlined,LaptopOutlined} from "@ant-design/icons"
 import {  useNavigate, useParams } from 'react-router-dom';
 import { Checkbox, Form, Image, Input, TimePicker} from 'antd';
 import toast from "react-hot-toast"
@@ -29,7 +29,7 @@ function FormAddPlace() {
             }
         }
         else{
-            const initialValues={maxGuests: 1,checkIn: moment('14:00', 'HH:mm'),checkOut: moment('12:00', 'HH:mm')}
+            const initialValues={pricePerNight:1,maxGuests: 1,checkIn: moment('14:00', 'HH:mm'),checkOut: moment('12:00', 'HH:mm')}
             form.setFieldsValue(initialValues)
         }
     }
@@ -153,7 +153,9 @@ function FormAddPlace() {
     }
 
     const mainPhotos = (item)=>{
-
+       
+        const linkWithouSeletected = photosByLink.filter(link=>link!=item);
+        setPhotosByLink([item,...linkWithouSeletected]);
     }
 
 
@@ -214,18 +216,38 @@ function FormAddPlace() {
                     </div>
 
                     
-                    <div className='grid grid-cols-3 gap-2 md:grid-cols-4 lg:grid-cols-6 mb-4'>
+                    <div className='grid grid-cols-3 gap-2 md:grid-cols-4 lg:grid-cols-6 mb-4 transition duration-300'>
                         {photosByLink.length>0 && photosByLink.map((item,index)=>(
-                                <div className='relative flex ' key={index}>
-                                    <Image
-                                    src={item}
-                                    className="rounded-2xl w-full object-cover"
-                                    />
-                                    <span onClick={()=>{handleDelete(item)}} className="absolute top-0 right-0 w-6 h-6 flex items-center justify-center text-white bg-red-500 rounded-full cursor-pointer hover:bg-red-700 transition duration-300">
-                                        X
-                                    </span>
-                                    <StarOutlined onClick={()=>{mainPhotos(item)}} className='cursor-pointer absolute bottom-1 left-1 text-white bg-black p-1  bg-opacity-50 rounded-2xl py-2 px-3 hover:bg-opacity-80 transition duration-300' />
-                                </div>
+                                <>
+                                    {index===0 && (
+                                        <div className='relative flex ' key={index}>
+                                            <Image
+                                            src={item}
+                                            className="rounded-2xl w-full object-cover"
+                                            />
+                                            <span onClick={()=>{handleDelete(item)}} className="absolute top-0 right-0 w-6 h-6 flex items-center justify-center text-white bg-red-500 rounded-full cursor-pointer hover:bg-red-700 transition duration-300">
+                                                X
+                                            </span>
+                                            <StarFilled onClick={()=>{mainPhotos(item)}} className='cursor-pointer absolute bottom-1 left-1 text-white bg-black p-1  bg-opacity-50 rounded-2xl py-2 px-3 hover:bg-opacity-80 transition duration-300' />
+                                        </div>
+                                        
+                                    )}
+
+                                    {index!==0 && (
+                                        <div className='relative flex ' key={index}>
+                                        <Image
+                                        src={item}
+                                        className="rounded-2xl w-full object-cover"
+                                        />
+                                        <span onClick={()=>{handleDelete(item)}} className="absolute top-0 right-0 w-6 h-6 flex items-center justify-center text-white bg-red-500 rounded-full cursor-pointer hover:bg-red-700 transition duration-300">
+                                            X
+                                        </span>
+                                        <StarOutlined onClick={()=>{mainPhotos(item)}} className='cursor-pointer absolute bottom-1 left-1 text-white bg-black p-1  bg-opacity-50 rounded-2xl py-2 px-3 hover:bg-opacity-80 transition duration-300' />
+                                    </div>
+                                 
+                                    )}
+                                </>
+                                
                         ))}
                         
                         <label
@@ -314,7 +336,7 @@ function FormAddPlace() {
                         <h2 className='text-xl '>Check in&out times</h2>
                         <p className='text-sm text-gray-500'>Add check in and out times, remember to have some time window for clearing the room between guests </p>
                     </div>
-                    <div className='grid sm:grid-cols-3 gap-2'>
+                    <div className='grid sm:grid-cols-4 gap-2'>
                         <Form.Item
                             label="Check in time"
                             className='mb-0 pb-0'
@@ -333,6 +355,12 @@ function FormAddPlace() {
                         <Form.Item
                             label="Max number of guests"
                             name="maxGuests"
+                        >
+                            <Input type='number' min={1}  className='rounded-2xl' />
+                        </Form.Item>
+                        <Form.Item
+                            label="Price per night ($)"
+                            name="pricePerNight"
                         >
                             <Input type='number' min={1}  className='rounded-2xl' />
                         </Form.Item>

@@ -106,7 +106,7 @@ const uploadByFilesApi = async(data)=>{
 const addPlaceApi = async(data)=>{
     try {
         // console.log(1);
-        const URL_LOGIN =`/api/places/add`
+        const URL_LOGIN =`/api/users-places/add`
         // console.log(URL_LOGIN);
         const response = await axios.post(URL_LOGIN,data)
         return response
@@ -122,7 +122,7 @@ const addPlaceApi = async(data)=>{
 const getPlaceApi = async(data)=>{
     try {
         // console.log(1);
-        const URL_LOGIN =`/api/places`
+        const URL_LOGIN =`/api/users-places`
         // console.log(URL_LOGIN);
         const response = await axios.get(URL_LOGIN)
         return response
@@ -137,7 +137,7 @@ const getPlaceApi = async(data)=>{
 const getPlaceByIdApi = async(id)=>{
     try {
         // console.log(1);
-        const URL_LOGIN =`/api/places/${id}`
+        const URL_LOGIN =`/api/users-places/${id}`
         // console.log(URL_LOGIN);
         const response = await axios.get(URL_LOGIN)
         return response
@@ -154,7 +154,7 @@ const getPlaceByIdApi = async(id)=>{
 const updatePlaceApi = async(data,id)=>{
     try {
         // console.log(1);
-        const URL_LOGIN =`/api/places/update/${id}`
+        const URL_LOGIN =`/api/users-places/update/${id}`
         // console.log(URL_LOGIN);
         const response = await axios.patch(URL_LOGIN,data)
         return response
@@ -166,6 +166,64 @@ const updatePlaceApi = async(data,id)=>{
     }
 }
 
+const getAllPlaceApi = async(data)=>{
+    try {
+        // console.log(1);
+        const URL_LOGIN =`/api/places`
+        // console.log(URL_LOGIN);
+        const response = await axios.get(URL_LOGIN)
+        return response
+    } catch (error) {
+        return {
+            code:400,
+            message: "Error in axios"
+        }
+    }
+}
+
+const getPlaceByIdAllUserApi = async(id)=>{
+    try {
+        // console.log(1);
+        const URL_LOGIN =`/api/places/${id}`
+        // console.log(URL_LOGIN);
+        const response = await axios.get(URL_LOGIN)
+        return response
+    } catch (error) {
+        return {
+            code:400,
+            message: "Error in axios"
+        }
+    }
+}
+
+const bookingApi = async(data)=>{
+    try {
+        // console.log(1);
+        const URL_LOGIN =`/api/bookings`
+        // console.log(URL_LOGIN);
+        const response = await axios.post(URL_LOGIN,data)
+        return response
+    } catch (error) {
+        return {
+            code:400,
+            message: "Error in axios"
+        }
+    }
+}
+const getBookingApi = async()=>{
+    try {
+        // console.log(1);
+        const URL_LOGIN =`/api/bookings`
+        // console.log(URL_LOGIN);
+        const response = await axios.get(URL_LOGIN)
+        return response
+    } catch (error) {
+        return {
+            code:400,
+            message: "Error in axios"
+        }
+    }
+}
 
 export {
     UserRegisterApi,
@@ -177,5 +235,9 @@ export {
     addPlaceApi,
     getPlaceApi,
     getPlaceByIdApi,
-    updatePlaceApi
+    updatePlaceApi,
+    getAllPlaceApi,
+    getPlaceByIdAllUserApi,
+    bookingApi,
+    getBookingApi
 }

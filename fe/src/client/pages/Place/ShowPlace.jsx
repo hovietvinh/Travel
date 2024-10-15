@@ -30,11 +30,11 @@ function ShowPlace() {
             <div className='mt-4 flex flex-col gap-4'>
                 {places.length>0 && places.map(item=>(
                    <Link to={`/user/places/${item._id}`} className='p-4 flex gap-4 bg-gray-100 rounded-2xl' key={item._id}>
-                        <div className='w-32 h-32 bg-gray-300 '>
+                        <div className='w-32 h-32 bg-gray-300 rounded-2xl'>
                              {item.photos.length>0 &&(
                                 <img
                                     src={item.photos[0]}
-                                   className="w-full h-full "
+                                   className="w-full h-full rounded-2xl"
                                 
                                 />
                              )}

@@ -5,8 +5,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { setUserAction } from '../../../redux/client/actions/UserAction';
 import { getProfileUserApi, logoutUserApi } from '../../../utils/Client/api';
 import Place from '../Place/Place';
-import {UserOutlined,UnorderedListOutlined,HomeOutlined} from "@ant-design/icons"
 import NavUser from '../../components/NavUser';
+import BookingHome from '../Booking';
 
 function User() {
     const dispatch = useDispatch()
@@ -64,9 +64,9 @@ function User() {
                     </>
                 )}
 
-                {subparams ==="booking" &&(
+                {subparams ==="bookings" &&(
                     <>
-                        123
+                        <BookingHome/>
                     
                     </>
                 )}

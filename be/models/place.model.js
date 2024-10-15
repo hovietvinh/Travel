@@ -11,6 +11,7 @@ const placeSchema = new mongoose.Schema(
         checkOut:String,
         maxGuests:Number,
         owner:String,
+        pricePerNight:Number,
         deleted: {
             type:Boolean,
             default:false
