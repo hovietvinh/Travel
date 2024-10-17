@@ -83,7 +83,8 @@ module.exports.login =async (req,res)=>{
         res.json(
             { 
                 message: 'Internal Server Error',
-                code:400
+                code:400,
+                error:error
             });
     }
 }
