@@ -9,7 +9,7 @@ import axios from "axios"
 
 // Set config defaults when creating the instance
 const instance = axios.create({
-    baseURL:import.meta.env.REACT_APP_API_BASE_URL,
+    baseURL:"https://travel-app-ffpz.onrender.com/api",
     withCredentials:true// Ensure cookies are included in requests
   });
   
