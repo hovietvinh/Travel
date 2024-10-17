@@ -4,8 +4,8 @@ const userPlaceRoutes = require("./user-place.route")
 const bookingRoutes = require("./booking.route")
 
 module.exports = (app)=>{
-   app.use("/be/api/users",userRoutes)
-   app.use("/be/api/users-places",userPlaceRoutes)
-   app.use("/be/api/places",placeRoutes)
-   app.use("/be/api/bookings",bookingRoutes)
+   app.use("/api/users",userRoutes)
+   app.use("/api/users-places",userPlaceRoutes)
+   app.use("/api/places",placeRoutes)
+   app.use("/api/bookings",bookingRoutes)
 }
