@@ -10,9 +10,7 @@ app.use(express.json() )
 
 app.use(cors({
     credentials: true,
-    origin: [
-        "https://earnest-sunshine-64e82d.netlify.app"
-    ]
+    origin: ["https://earnest-sunshine-64e82d.netlify.app"]
 }));
 app.use(cookieParser());
 
