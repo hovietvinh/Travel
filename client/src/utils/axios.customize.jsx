@@ -9,7 +9,7 @@ import axios from "axios"
 
 // Set config defaults when creating the instance
 const instance = axios.create({
-    baseURL:"https://travel-app-api-hazel.vercel.app/api",
+    baseURL:import.meta.env.VITE_API_BASE_URL,
     withCredentials:true// Ensure cookies are included in requests
   });
   
