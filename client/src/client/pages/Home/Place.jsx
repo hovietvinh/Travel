@@ -145,7 +145,7 @@ function Place() {
                         <h1 className='text-center sm:text-start text-3xl my-3'>{data.title}</h1>
                         <MapAddress data={data}/>
                         <div className='relative'>
-                            <div className='sm:grid sm:grid-cols-[2fr_1fr] gap-2 overflow-hidden'>
+                            <div className='sm:grid sm:grid-cols-[2fr_1fr] gap-4 overflow-hidden'>
                                 <div className='relative'>
                                     {data.photos?.[0] && (
                                         <img

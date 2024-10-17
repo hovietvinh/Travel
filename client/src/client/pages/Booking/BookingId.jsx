@@ -28,9 +28,9 @@ function BookingId() {
         <>
             {data && (
                 <div className='mt-4'>
-                    <h1 className='text-3xl'>{data.placeId.title}</h1>
+                    <h1 className='text-3xl text-center sm:text-start'>{data.placeId.title}</h1>
                     <MapAddress data={data.placeId}/>
-                    <div className='bg-gray-200 rounded-2xl p-6 flex items-center justify-between'>
+                    <div className='hidden sm:flex bg-gray-200 rounded-2xl p-6 sm:items-center sm:justify-between'>
                         <div>
                             <h2 className='text-2xl mb-4'>Your booking infomation:</h2>
                             <div className='flex gap-3'>
@@ -50,6 +50,28 @@ function BookingId() {
                             </div>
                         </div>
                         <div className='p-6 bg-[#f5385d] text-white rounded-2xl'>
+                            <div className=''>Total price</div>
+                            <div className='text-3xl'>${data.price}</div>
+                        </div>
+                    </div>
+                    <div className='flex flex-col gap-4 sm:hidden'>
+                        <div className='bg-gray-200 rounded-2xl p-6'>
+                            <h2 className='text-2xl mb-4'>Your booking infomation:</h2>
+                            <div className='flex gap-1'>
+                                <MoonOutlined />
+                                {differenceInCalendarDays(data.checkOut, data.checkIn)} nights
+                            </div>
+                            <div className='flex gap-1'>
+                                Check in: <CalendarOutlined />{format(new Date( data.checkIn),"dd-MM-yyyy")} 
+
+                            </div>
+                            <div className='flex gap-1'>
+                                Check out:  <CalendarOutlined/>{format(data.checkOut,"dd-MM-yyyy")}
+
+                            </div>
+
+                        </div>
+                        <div className='p-6 bg-[#f5385d] text-white text-center rounded-2xl'>
                             <div className=''>Total price</div>
                             <div className='text-3xl'>${data.price}</div>
                         </div>
