@@ -1,3 +1,4 @@
+import { Spin } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllPlaceApi } from '../../../utils/Client/api';
@@ -17,6 +18,15 @@ function Home() {
     
     return (
         <>
+            {places.length==0 &&(
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                    <Spin spinning={data.length === 0} tip="Waiting...">
+                    
+                    </Spin>
+                </div>
+            )}
+            
+
             <div className='mt-8 gap-y-8 gap-x-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6'>
                 {places.length>0 && places.map(item=>(
 
