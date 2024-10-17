@@ -8,4 +8,7 @@ module.exports = (app)=>{
    app.use("/api/users-places",userPlaceRoutes)
    app.use("/api/places",placeRoutes)
    app.use("/api/bookings",bookingRoutes)
+   app.get("/",(req,res)=>{
+      res.json(1)
+   })
 }
