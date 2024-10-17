@@ -66,7 +66,7 @@ module.exports.login =async (req,res)=>{
                     expiresIn: process.env.JWT_EXPIRE   
                 }
             )
-            res.cookie("user_token",token);
+            // res.cookie("user_token",token);
             res.json({
                 code:200,
                 data:payload
