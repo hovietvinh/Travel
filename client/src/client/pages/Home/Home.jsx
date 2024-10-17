@@ -14,7 +14,6 @@ function Home() {
     useEffect(()=>{
         fetch()
     },[])
-    console.log(places)
     
     return (
         <>

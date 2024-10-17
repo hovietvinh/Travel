@@ -8,7 +8,7 @@ import axios from "axios"
 
 // Set config defaults when creating the instance
 const instance = axios.create({
-    baseURL: import.meta.env.API_BASE_URL,
+    baseURL:"http://localhost:4000",
     withCredentials:true// Ensure cookies are included in requests
   });
   
