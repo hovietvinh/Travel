@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {PlusOutlined} from "@ant-design/icons"
 import { Link} from 'react-router-dom';
 import { getPlaceApi } from '../../../utils/Client/api';
-import { Image } from 'antd';
+import { Image, Spin } from 'antd';
 
 function ShowPlace() {
     const [places,setPlaces] = useState([])
@@ -27,6 +27,13 @@ function ShowPlace() {
                 </Link>
             </div>   
 
+            {places.length==0 &&(
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                    <Spin spinning={data.length === 0} tip="Waiting...">
+                    
+                    </Spin>
+                </div>
+            )}
             <div className='mt-4 flex flex-col gap-4'>
                 {places.length>0 && places.map(item=>(
                    <Link to={`/user/places/${item._id}`} className='p-4 flex gap-4 bg-gray-100 rounded-2xl' key={item._id}>

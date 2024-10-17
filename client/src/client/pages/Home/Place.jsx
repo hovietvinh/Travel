@@ -3,7 +3,7 @@ import { toast } from 'react-hot-toast';
 import { useNavigate, useParams } from 'react-router-dom';
 import { bookingApi, getPlaceByIdAllUserApi } from '../../../utils/Client/api';
 import {FileImageOutlined} from "@ant-design/icons"
-import { Form, Input } from 'antd';
+import { Form, Input, Spin } from 'antd';
 import {differenceInCalendarDays} from 'date-fns'
 import { useSelector } from 'react-redux';
 import MapAddress from '../../components/MapAddress';
@@ -130,6 +130,15 @@ function Place() {
     }
     return (
         <>
+            {!data&&(
+                <>
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                        <Spin spinning={data.length === 0} tip="Waiting...">
+                        
+                        </Spin>
+                    </div>
+                </>
+            )}
             {data && (
                 <>
                     <div className='mt-4 bg-gray-100 -mx-8 px-8 pt-8'>
