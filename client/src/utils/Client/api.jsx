@@ -3,7 +3,7 @@ import axios from "../axios.customize";
 const UserRegisterApi = async (data)=>{
     try {
         // console.log(1);
-        const URL_LOGIN =`/api/users/register`
+        const URL_LOGIN =`/users/register`
         // console.log(URL_LOGIN);
         const response = await axios.post(URL_LOGIN,data)
         return response
@@ -18,7 +18,7 @@ const UserRegisterApi = async (data)=>{
 const UserLoginApi = async (data)=>{
     try {
         // console.log(1);
-        const URL_LOGIN =`/api/users/login`
+        const URL_LOGIN =`/users/login`
         // console.log(URL_LOGIN);
         const response = await axios.post(URL_LOGIN,data)
         console.log(response)
@@ -34,7 +34,7 @@ const UserLoginApi = async (data)=>{
 const getProfileUserApi = async ()=>{
     try {
         // console.log(1);
-        const URL_LOGIN =`/api/users/profile`
+        const URL_LOGIN =`/users/profile`
         // console.log(URL_LOGIN);
         const response = await axios.get(URL_LOGIN)
         // console.log(response)
@@ -51,7 +51,7 @@ const getProfileUserApi = async ()=>{
 const logoutUserApi = async ()=>{
     try {
         // console.log(1);
-        const URL_LOGIN =`/api/users/logout`
+        const URL_LOGIN =`/users/logout`
         // console.log(URL_LOGIN);
         const response = await axios.post(URL_LOGIN)
         
@@ -68,7 +68,7 @@ const logoutUserApi = async ()=>{
 const uploadByLinkApi = async(data)=>{
     try {
         // console.log(1);
-        const URL_LOGIN =`/api/users/upload-by-link`
+        const URL_LOGIN =`/users/upload-by-link`
         // console.log(URL_LOGIN);
         const response = await axios.post(URL_LOGIN,data)
         
@@ -84,7 +84,7 @@ const uploadByLinkApi = async(data)=>{
 const uploadByFilesApi = async(data)=>{
     try {
         // console.log(1);
-        const URL_LOGIN =`/api/users/upload-by-files`
+        const URL_LOGIN =`/users/upload-by-files`
         // console.log(URL_LOGIN);
         const response = await axios.post(URL_LOGIN,data,{
             headers:{
@@ -106,7 +106,7 @@ const uploadByFilesApi = async(data)=>{
 const addPlaceApi = async(data)=>{
     try {
         // console.log(1);
-        const URL_LOGIN =`/api/users-places/add`
+        const URL_LOGIN =`/users-places/add`
         // console.log(URL_LOGIN);
         const response = await axios.post(URL_LOGIN,data)
         return response
@@ -122,7 +122,7 @@ const addPlaceApi = async(data)=>{
 const getPlaceApi = async(data)=>{
     try {
         // console.log(1);
-        const URL_LOGIN =`/api/users-places`
+        const URL_LOGIN =`/users-places`
         // console.log(URL_LOGIN);
         const response = await axios.get(URL_LOGIN)
         return response
@@ -137,7 +137,7 @@ const getPlaceApi = async(data)=>{
 const getPlaceByIdApi = async(id)=>{
     try {
         // console.log(1);
-        const URL_LOGIN =`/api/users-places/${id}`
+        const URL_LOGIN =`/users-places/${id}`
         // console.log(URL_LOGIN);
         const response = await axios.get(URL_LOGIN)
         return response
@@ -154,7 +154,7 @@ const getPlaceByIdApi = async(id)=>{
 const updatePlaceApi = async(data,id)=>{
     try {
         // console.log(1);
-        const URL_LOGIN =`/api/users-places/update/${id}`
+        const URL_LOGIN =`/users-places/update/${id}`
         // console.log(URL_LOGIN);
         const response = await axios.patch(URL_LOGIN,data)
         return response
@@ -169,7 +169,7 @@ const updatePlaceApi = async(data,id)=>{
 const getAllPlaceApi = async(data)=>{
     try {
         // console.log(1);
-        const URL_LOGIN =`/api/places`
+        const URL_LOGIN =`/places`
         // console.log(URL_LOGIN);
         const response = await axios.get(URL_LOGIN)
         return response
@@ -184,7 +184,7 @@ const getAllPlaceApi = async(data)=>{
 const getPlaceByIdAllUserApi = async(id)=>{
     try {
         // console.log(1);
-        const URL_LOGIN =`/api/places/${id}`
+        const URL_LOGIN =`/places/${id}`
         // console.log(URL_LOGIN);
         const response = await axios.get(URL_LOGIN)
         return response
@@ -199,7 +199,7 @@ const getPlaceByIdAllUserApi = async(id)=>{
 const bookingApi = async(data)=>{
     try {
         // console.log(1);
-        const URL_LOGIN =`/api/bookings`
+        const URL_LOGIN =`/bookings`
         // console.log(URL_LOGIN);
         const response = await axios.post(URL_LOGIN,data)
         return response
@@ -213,7 +213,7 @@ const bookingApi = async(data)=>{
 const getBookingApi = async()=>{
     try {
         // console.log(1);
-        const URL_LOGIN =`/api/bookings`
+        const URL_LOGIN =`/bookings`
         // console.log(URL_LOGIN);
         const response = await axios.get(URL_LOGIN)
         return response

@@ -1,4 +1,5 @@
 import axios from "axios"
+
 // const getCookie = (name) => {
 //   const value = `; ${document.cookie}`; // Append a semicolon for easier parsing
 //   const parts = value.split(`; ${name}=`); // Split by the cookie name
@@ -8,7 +9,7 @@ import axios from "axios"
 
 // Set config defaults when creating the instance
 const instance = axios.create({
-    baseURL:"http://localhost:4000",
+    baseURL:import.meta.env.REACT_APP_API_BASE_URL,
     withCredentials:true// Ensure cookies are included in requests
   });
   
