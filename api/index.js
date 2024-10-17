@@ -10,7 +10,7 @@ app.use(express.json() )
 
 app.use(cors({
     credentials: true,
-    origin: ["https://travel-app-client-omega.vercel.app"]
+    origin: ["http://localhost:5173"]
 }));
 app.use(cookieParser());
 
