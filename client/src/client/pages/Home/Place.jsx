@@ -142,11 +142,11 @@ function Place() {
             {data && (
                 <>
                     <div className='mt-4 bg-gray-100 -mx-8 px-8 pt-8'>
-                        <h1 className='text-3xl my-3'>{data.title}</h1>
+                        <h1 className='text-center sm:text-start text-3xl my-3'>{data.title}</h1>
                         <MapAddress data={data}/>
                         <div className='relative'>
-                            <div className='grid grid-cols-[2fr_1fr] gap-2 overflow-hidden'>
-                                <div>
+                            <div className='sm:grid sm:grid-cols-[2fr_1fr] gap-2 overflow-hidden'>
+                                <div className='relative'>
                                     {data.photos?.[0] && (
                                         <img
                                             src={data.photos[0]}
@@ -155,13 +155,14 @@ function Place() {
                                             onClick={()=>setShowMorePhotos(true)}
                                         />
                                     )}
+                                    <div className='sm:hidden absolute right-4 text-[13px] bottom-4 rounded-sm text-white py-2 px-4 bg-[#1C3239] tracking-wide'>1/{data.photos.length}</div>
                                 </div>
                                 <div className='grid '>
                                     {data.photos?.[1] && (
                                         <img
                                             src={data.photos[1]}
                                             alt="no img"
-                                            className='object-cover aspect-square rounded-2xl cursor-pointer'
+                                            className='hidden sm:inline object-cover aspect-square rounded-2xl cursor-pointer'
                                             onClick={()=>setShowMorePhotos(true)}
                                         />
                                     )}   
@@ -170,7 +171,7 @@ function Place() {
                                             <img
                                                 src={data.photos[2]}
                                                 alt="no img"
-                                                className='object-cover aspect-square relative top-2 rounded-2xl cursor-pointer'
+                                                className='hidden sm:inline object-cover aspect-square relative top-2 rounded-2xl cursor-pointer'
                                                 onClick={()=>setShowMorePhotos(true)}
                                             />
                                         )}  
@@ -178,7 +179,7 @@ function Place() {
                                     
                                 </div>
                             </div>
-                            <button onClick={()=>setShowMorePhotos(true)} className='absolute flex gap-2 items-center bottom-1 right-1 bg-white px-4 py-2 rounded-2xl border border-black shadow shadow-md shadow-gray-500 cursor-pointer'>
+                            <button onClick={()=>setShowMorePhotos(true)} className='hidden sm:inline absolute flex gap-2 items-center bottom-1 right-1 bg-white px-4 py-2 rounded-2xl border border-black shadow shadow-md shadow-gray-500 cursor-pointer'>
                                 <FileImageOutlined />
                                 Show more photos
                             </button>
