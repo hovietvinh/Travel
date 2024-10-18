@@ -208,7 +208,7 @@ function Place() {
                                         Price: ${data.pricePerNight} / per night
                                     </div>
                                     <Form className='border mt-4 rounded-md' onFinish={handleBooking} layout='vertical' form={form}>
-                                        <div className='grid sm:grid-cols-2 '>
+                                        <div className='grid grid-cols-1 sm:grid-cols-2 '>
                                             <div className='py-3 px-4'>
                                                 <Form.Item
                                                     label="Check in:"
